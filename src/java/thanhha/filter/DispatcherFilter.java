@@ -116,6 +116,7 @@ public class DispatcherFilter implements Filter {
 
             if (url != null) {
                 RequestDispatcher dispatcher = servletRequest.getRequestDispatcher(url);
+                System.out.println("Dispatcher: " + url);
                 dispatcher.forward(request, response);
             } else {
                 if (resource.contains(".jpg")) {
@@ -126,6 +127,7 @@ public class DispatcherFilter implements Filter {
             }
         } catch (Throwable t) {
             LOGGER.error(t.getMessage());
+            t.printStackTrace();
 //            servletResponse.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }

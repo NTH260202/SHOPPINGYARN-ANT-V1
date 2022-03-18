@@ -24,6 +24,7 @@ import org.apache.log4j.Logger;
 import thanhha.account.AccountDTO;
 import static thanhha.constant.ResourceUrl.PathName.PRODUCT_PAGE;
 import static thanhha.constant.ResourceUrl.PathName.LOAD_USER_INFOR;
+import static thanhha.constant.ResourceUrl.PathName.LOGIN;
 import static thanhha.constant.ResourceUrl.PathName.SEARCH_PAGE;
 
 /**
@@ -135,10 +136,10 @@ public class AuthorizeFilter implements Filter {
                     }
                 }
             }
-
-            if ((resource.equals("") || resource.equals("login")) && userRole.equals("admin")) {
-                servletResponse.sendRedirect(SEARCH_PAGE);
-            }
+            System.out.println(role + " + " + resource + " " + session );
+            if (resource.equals("") && (session != null)) {
+                servletResponse.sendRedirect(LOGIN);
+            } else {
             
 //            if ((resource.equals("") || resource.equals("login")) && userRole.equals("guest")) {
 ////                servletResponse.sendRedirect(PRODUCT_PAGE);
@@ -146,24 +147,26 @@ public class AuthorizeFilter implements Filter {
 //                servletResponse.sendRedirect(LOAD_USER_INFOR);
 //            }
             
-            if ((resource.equals("") || resource.equals("login")) && userRole.equals("user")) {
+//            if ((resource.equals("") || resource.equals("login")) && userRole.equals("user")) {
+////                servletResponse.sendRedirect(PRODUCT_PAGE);
+//                
 //                servletResponse.sendRedirect(PRODUCT_PAGE);
+//            }
                 
-                servletResponse.sendRedirect(PRODUCT_PAGE);
-            }
 
-            if (role != null) {
-                if (role.contains(userRole)) {
-                    
-                    chain.doFilter(request, response);
+                if (role != null) {
+                    if (role.contains(userRole)) {
+                        System.out.println("Hello Im pass filter 1");
+                        chain.doFilter(request, response);
+                    } else {
+                        servletResponse.sendError(HttpServletResponse.SC_NOT_FOUND);
+                    }
                 } else {
-                    servletResponse.sendError(HttpServletResponse.SC_NOT_FOUND);
-                }
-            } else {
-                if (resource.contains(".jpg")) {
-                    chain.doFilter(request, response);
-                } else {
-                    servletResponse.sendError(HttpServletResponse.SC_NOT_FOUND);
+                    if (resource.contains(".jpg")) {
+                        chain.doFilter(request, response);
+                    } else {
+                        servletResponse.sendError(HttpServletResponse.SC_NOT_FOUND);
+                    }
                 }
             }
         } catch (Throwable t) {

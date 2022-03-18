@@ -24,5 +24,8 @@ public class ResourceUrl implements Serializable {
         public static final String LOGIN_PAGE = "loginPage";
         public static final String BILL_PAGE = "billPage";
         public static final String LOAD_USER_INFOR = "loadUserInfor";
+        public static final String USER_HOMEPAGE = "userHomepage";
+        public static final String ADMIN_HOMEPAGE = "adminHomepage";
+        public static final String LOGIN = "login";
     }
 }

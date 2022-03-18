@@ -2,3 +2,6 @@ ERROR   2022-03-18 02:17:53,840 [http-nio-8080-exec-1] thanhha.filter.Dispatcher
 ERROR   2022-03-18 12:42:21,668 [http-nio-8080-exec-222] thanhha.filter.DispatcherFilter  - Cannot forward after response has been committed
 ERROR   2022-03-18 12:42:24,837 [http-nio-8080-exec-217] thanhha.filter.DispatcherFilter  - Cannot forward after response has been committed
 ERROR   2022-03-18 13:14:15,592 [http-nio-8080-exec-224] thanhha.filter.DispatcherFilter  - Cannot forward after response has been committed
+ERROR   2022-03-18 17:37:20,368 [http-nio-8080-exec-94] thanhha.filter.DispatcherFilter  - 
+ERROR   2022-03-18 17:45:15,925 [http-nio-8080-exec-104] thanhha.filter.DispatcherFilter  - 
+ERROR   2022-03-18 17:51:41,761 [http-nio-8080-exec-115] thanhha.filter.DispatcherFilter  - 
