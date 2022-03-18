@@ -8,7 +8,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import javax.naming.NamingException;
 import thanhha.util.DBHelper;
@@ -113,5 +115,36 @@ public class CartDAO {
             DBHelper.closeConnection(connection, resultSet, statement);
         }
         return items;
+    }
+    
+    public List<CartDTO> getAllItemsInCart(String customerId) 
+            throws NamingException, SQLException {
+        List<CartDTO> cart = null;
+        try {
+            connection = DBHelper.makeConnection();
+            if (connection != null) {
+                String sql = "SELECT productId, quantity "
+                        + " FROM cart "
+                        + " WHERE customerId = ? ";
+                statement = connection.prepareStatement(sql);
+                statement.setString(1, customerId);
+                resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    String productId = resultSet.getString("productId");
+                    int quantity = resultSet.getInt("quantity");
+                    
+                    CartDTO item = new CartDTO(customerId, productId, quantity);
+                    
+                    if (cart == null) {
+                        cart = new ArrayList<>();
+                    }
+                    cart.add(item);
+                }
+            }
+        } finally {
+            DBHelper.closeConnection(connection, resultSet, statement);
+        }
+        return cart;
     }
 }

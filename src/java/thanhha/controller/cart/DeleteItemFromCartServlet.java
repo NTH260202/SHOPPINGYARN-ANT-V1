@@ -34,7 +34,9 @@ public class DeleteItemFromCartServlet extends HttpServlet {
                         if (selectedItem != null) {
                             for (String item : selectedItem) {
                                 cart.removeItemFromCart(item);
-                                cartDAO.deleteItemInCart(item, validUser.getUsername());
+                                if (validUser != null) {
+                                    cartDAO.deleteItemInCart(item, validUser.getUsername());
+                                } 
                             }
                             session.setAttribute("CART", cart);
                         }

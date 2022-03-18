@@ -31,21 +31,24 @@ public class AddItemToCartServlet extends HttpServlet {
             }
 
             String id = request.getParameter("selectedItem");
+            System.out.println(id);
             ProductDAO productDAO = new ProductDAO();
             ProductDTO product = productDAO.getProductById(id);
             List<ProductDTO> productList = productDAO.getAllProducts(true);
+            AccountDTO validUser = (AccountDTO) session.getAttribute("USER");
 
             if (cart.getQuantityByItemId(id) < product.getInStock()) {
                 cart.addItemToCart(product.getId());
-            }
-            
-            AccountDTO validUser = (AccountDTO) session.getAttribute("USER");
-            if (validUser != null) {
+                
+                if (validUser != null) {
                 CartDAO cartDAO = new CartDAO();
-                if (cart.getQuantityByItemId(id) == 0) {
-                    boolean result = cartDAO.insertItemToCart(id, validUser.getUsername());
-                } else {
-                    boolean result = cartDAO.updateItemInCart(id, validUser.getUsername());
+                    if (cart.getQuantityByItemId(id) == 0) {
+                        boolean result = cartDAO.insertItemToCart(id, validUser.getUsername());
+                        System.out.println("is insert:" + result);
+                    } else {
+                        boolean result = cartDAO.updateItemInCart(id, validUser.getUsername());
+                        System.out.println("is update:" + result);
+                    }
                 }
             }
             session.setAttribute("CART", cart);

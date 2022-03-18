@@ -5,3 +5,14 @@ ERROR   2022-03-18 13:14:15,592 [http-nio-8080-exec-224] thanhha.filter.Dispatch
 ERROR   2022-03-18 17:37:20,368 [http-nio-8080-exec-94] thanhha.filter.DispatcherFilter  - 
 ERROR   2022-03-18 17:45:15,925 [http-nio-8080-exec-104] thanhha.filter.DispatcherFilter  - 
 ERROR   2022-03-18 17:51:41,761 [http-nio-8080-exec-115] thanhha.filter.DispatcherFilter  - 
+ERROR   2022-03-18 21:22:44,777 [http-nio-8080-exec-129] thanhha.controller.cart.AddItemToCartServlet  - The column name imageUrl is not valid.
+ERROR   2022-03-18 21:22:45,490 [http-nio-8080-exec-125] thanhha.controller.cart.AddItemToCartServlet  - The column name imageUrl is not valid.
+ERROR   2022-03-18 21:22:51,905 [http-nio-8080-exec-125] thanhha.controller.cart.AddItemToCartServlet  - The column name imageUrl is not valid.
+ERROR   2022-03-18 21:22:52,108 [http-nio-8080-exec-129] thanhha.controller.cart.AddItemToCartServlet  - The column name imageUrl is not valid.
+ERROR   2022-03-18 21:22:52,321 [http-nio-8080-exec-125] thanhha.controller.cart.AddItemToCartServlet  - The column name imageUrl is not valid.
+ERROR   2022-03-18 21:26:24,141 [http-nio-8080-exec-128] thanhha.controller.cart.AddItemToCartServlet  - The column name imageUrl is not valid.
+ERROR   2022-03-18 21:26:24,776 [http-nio-8080-exec-134] thanhha.controller.cart.AddItemToCartServlet  - The column name imageUrl is not valid.
+ERROR   2022-03-18 21:26:34,522 [http-nio-8080-exec-138] thanhha.controller.cart.AddItemToCartServlet  - The column name imageUrl is not valid.
+ERROR   2022-03-18 21:26:35,113 [http-nio-8080-exec-134] thanhha.controller.cart.AddItemToCartServlet  - The column name imageUrl is not valid.
+ERROR   2022-03-18 21:28:09,796 [http-nio-8080-exec-140] thanhha.controller.cart.AddItemToCartServlet  - The column name imageUrl is not valid.
+ERROR   2022-03-18 21:28:11,828 [http-nio-8080-exec-141] thanhha.controller.cart.AddItemToCartServlet  - The column name imageUrl is not valid.

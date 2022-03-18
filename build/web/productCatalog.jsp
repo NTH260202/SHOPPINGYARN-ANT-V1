@@ -55,7 +55,13 @@
                 </c:forEach>
                 </tbody>
             </table>
-        <a href="cartPage">View Your Cart</a><br/>
+            <!-- <c:if test="${not empty user}">
+                <a href="viewCart">View Your Cart</a><br/>
+            </c:if> -->
+                <a href="cartPage">View Your Cart</a><br/>
+            <c:if test="${empty user}">
+                
+            </c:if>
+        
     </body>
-    <img src="/image/yarn1.jpg" alt="HTML5 Icon" style="width:128px;height:128px;">
 </html>

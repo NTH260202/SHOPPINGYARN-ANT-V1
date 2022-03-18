@@ -54,7 +54,7 @@ public class ProductDAO implements Serializable {
         try {
             connection = DBHelper.makeConnection();
             if (connection != null) {
-                String sql = "SELECT id, [name], price, in_stock " +
+                String sql = "SELECT id, [name], imageUrl, price, in_stock " +
                         " FROM product " +
                         " WHERE id = ?";
                 statement = connection.prepareStatement(sql);
